@@ -1,4 +1,3 @@
-import './style.css';
 import { SceneManager } from './3d/SceneManager.js';
 import { setupNavigation } from './components/Navigation.js';
 import { renderServices } from './components/Services.js';

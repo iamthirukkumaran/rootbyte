@@ -14,6 +14,12 @@
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#0a0c0b" />
 
+    <style>
+      html, body { background: #0a0c0b; color: #f4f4f5; }
+      .brand-logo-img { width: 44px; height: 44px; object-fit: contain; }
+    </style>
+    <link rel="stylesheet" href="/src/style.css" />
+
     <!-- Google Fonts: Modern Luxury Serif (Bodoni Moda & Cinzel Decorative matching Athena specimen) + Claude Font Stack -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,12 +34,12 @@
     <header class="header" role="banner">
       <div class="container nav-container">
         <a href="#hero" class="brand-logo" aria-label="RootByte Home">
-          <img src="/neon-circuit-tree-logo.png" alt="RootByte Logo" class="brand-logo-img" />
+          <img src="/neon-circuit-tree-logo.png" alt="RootByte Logo" class="brand-logo-img" width="44" height="44" />
           <span class="brand-text">ROOT <span class="brand-accent">BYTE</span></span>
         </a>
 
         <nav class="nav-links" role="navigation" aria-label="Main Navigation">
-          <a href="#services" class="nav-link">Disciplines</a>
+          <a href="#services" class="nav-link">Services</a>
           <a href="#standards" class="nav-link">Standards</a>
           <a href="#quote-calculator" class="nav-link">Scope & Timeline</a>
           <a href="#process" class="nav-link">Process</a>
@@ -65,7 +71,7 @@
                 <span>Estimate Delivery Timeline →</span>
               </a>
               <a href="#services" class="btn btn-secondary">
-                <span>Explore Disciplines</span>
+                <span>Explore Services</span>
               </a>
             </div>
           </div>
@@ -76,7 +82,7 @@
       <section id="services" class="section">
         <div class="container">
           <header class="section-header">
-            <h2 class="section-title">Core Disciplines</h2>
+            <h2 class="section-title">Core Services</h2>
             <p class="section-desc">
               Bespoke solutions engineered entirely around your unique project requirements. No rigid tech stack lock-in — we adapt to your preferred ecosystem and business goals.
             </p>
@@ -99,7 +105,7 @@
           </header>
 
           <div class="portfolio-filters" role="tablist">
-            <button class="filter-btn active" data-filter="all">All Disciplines</button>
+            <button class="filter-btn active" data-filter="all">All Services</button>
             <button class="filter-btn" data-filter="web">Web & Full Stack</button>
             <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
             <button class="filter-btn" data-filter="video">Video & Reels</button>
@@ -126,7 +132,7 @@
             <div class="estimator-controls">
               <!-- Step 1: Service Type (NO EMOJIS) -->
               <div class="step-group">
-                <h3 class="step-title">1. Target Discipline</h3>
+                <h3 class="step-title">1. Target Service</h3>
                 <div class="chip-group">
                   <button type="button" class="chip-btn service-chip" data-type="web">
                     Web Development
@@ -196,7 +202,7 @@
 
                 <div class="summary-list">
                   <div class="summary-item">
-                    <span class="summary-label">Discipline</span>
+                    <span class="summary-label">Service</span>
                     <span id="summary-service" class="summary-value">Web Development</span>
                   </div>
                   <div class="summary-item">
@@ -284,7 +290,7 @@
           <!-- Left Column: Brand, Tagline, Description & Social Badges -->
           <div class="footer-brand-col">
             <div class="brand-logo footer-logo">
-              <img src="/neon-circuit-tree-logo.png" alt="RootByte Logo" class="brand-logo-img" />
+              <img src="/neon-circuit-tree-logo.png" alt="RootByte Logo" class="brand-logo-img" width="44" height="44" />
               <span class="brand-text">ROOT<span class="brand-dot">·</span><span class="brand-accent">BYTE</span></span>
             </div>
             <div class="footer-tagline">Creative Technology. Digital Excellence.</div>

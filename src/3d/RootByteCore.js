@@ -110,12 +110,12 @@ export class RootByteCore {
     });
 
     // Gentle floating respiration + scroll transition (moves smoothly out of view when scrolling down)
-    const scrollMoveY = (scrollOffset / window.innerHeight) * 12;
+    const isMobile = window.innerWidth < 900;
+    const scrollMoveY = isMobile ? 0 : (scrollOffset / window.innerHeight) * 12;
     this.group.position.y = this.baseY + Math.sin(time * 0.8) * 0.2 + scrollMoveY;
 
-    // Scale down slightly and fade as user scrolls past hero
-    const scrollFade = Math.max(0, 1 - scrollOffset / (window.innerHeight * 0.9));
-    const currentBaseScale = (window.innerWidth < 900) ? 0.55 : 0.75;
+    const scrollFade = Math.max(0, 1 - scrollOffset / (window.innerHeight * (isMobile ? 0.2 : 0.9)));
+    const currentBaseScale = isMobile ? 0.32 : 0.75;
     const finalScale = currentBaseScale * Math.max(0.01, scrollFade);
     this.group.scale.set(finalScale, finalScale, finalScale);
     this.group.visible = scrollFade > 0.02;
@@ -124,9 +124,9 @@ export class RootByteCore {
   setResponsivePosition(isMobile) {
     if (isMobile) {
       this.baseX = 0;
-      this.baseY = -1.2;
-      this.group.position.set(0, -1.2, -3);
-      this.group.scale.set(0.55, 0.55, 0.55);
+      this.baseY = 4.9;
+      this.group.position.set(0, 4.9, -3);
+      this.group.scale.set(0.34, 0.34, 0.34);
     } else {
       this.baseX = 4.4;
       this.baseY = 0;

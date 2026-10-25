@@ -108,8 +108,12 @@
 @media (max-width: 600px) {
   .hero-section {
     min-height: auto;
-    padding-top: 5rem;
-    padding-bottom: 2.5rem;
+    align-items: flex-start;
+    padding-top: 13rem;
+    padding-bottom: 1rem;
+  }
+  #services.section {
+    padding-top: 1rem;
   }
   .hero-actions {
     flex-direction: column;
@@ -123,7 +127,13 @@
   }
 }
 
-/* Core Disciplines - Distinct Matte Cards Grid */
+@media (min-width: 601px) and (max-width: 900px) {
+  .hero-content {
+    top: 1.5rem;
+  }
+}
+
+/* Core Services - Distinct Matte Cards Grid */
 .services-grid-cards {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
