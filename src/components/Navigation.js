@@ -1,73 +1,122 @@
+/**
+ * Floating pill nav with a full mega-menu.
+ *
+ * The pill fades out as the panel scales up from the same origin, so the menu
+ * reads as the pill expanding rather than a separate overlay arriving.
+ */
 export function setupNavigation() {
-  const header = document.querySelector('.header');
-  const mobileBtn = document.querySelector('.mobile-menu-btn');
-  const navLinks = document.querySelector('.nav-links');
-  const links = document.querySelectorAll('.nav-link');
+  const pill = document.querySelector('.nav-pill');
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('nav-menu');
+  const inner = menu?.querySelector('.nav-menu-inner');
+  const tab = document.querySelector('.nav-menu-tab');
+  const scrim = document.querySelector('.nav-scrim');
+  const closeBtn = document.querySelector('.menu-close');
 
-  // Glass header on scroll
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header?.classList.add('scrolled');
+  let lastFocused = null;
+
+  const focusables = () =>
+    Array.from(menu?.querySelectorAll('a[href], button:not([disabled])') || []).filter(
+      (el) => el.offsetParent !== null
+    );
+
+  /**
+   * The panel animates height, so it needs a number rather than `auto`.
+   * scrollHeight is the full content height even while max-height clips it.
+   */
+  function measure() {
+    if (!inner) return;
+    const navTop = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-top')) || 16;
+    const cap = window.innerHeight - navTop * 2 - 72;
+    const height = Math.min(inner.scrollHeight, cap);
+    document.documentElement.style.setProperty('--menu-h', `${Math.round(height)}px`);
+  }
+
+  function setMenu(open) {
+    if (!menu) return;
+
+    if (open) measure();
+
+    menu.classList.toggle('open', open);
+    tab?.classList.toggle('open', open);
+    scrim?.classList.toggle('open', open);
+    pill?.classList.toggle('is-hidden', open);
+    document.body.classList.toggle('no-scroll', open);
+
+    toggle?.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-hidden', String(!open));
+
+    if (open) {
+      lastFocused = document.activeElement;
+      setTimeout(() => closeBtn?.focus(), 120);
     } else {
-      header?.classList.remove('scrolled');
+      lastFocused?.focus();
     }
+  }
 
-    // Update active nav link based on scroll position
-    const sections = document.querySelectorAll('section[id]');
-    const scrollY = window.pageYOffset;
-
-    sections.forEach((current) => {
-      const sectionHeight = current.offsetHeight;
-      const headerHeight = header?.offsetHeight || 85;
-      const sectionTop = current.offsetTop - headerHeight - 50;
-      const sectionId = current.getAttribute('id');
-      const targetLink = document.querySelector(`.nav-link[href*="${sectionId}"]`);
-
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        links.forEach((l) => l.classList.remove('active'));
-        targetLink?.classList.add('active');
-      }
-    });
+  measure();
+  window.addEventListener('resize', () => {
+    measure();
+    if (window.innerWidth > 1200 && menu?.classList.contains('open')) measure();
   });
 
-  // Dynamic centered scroll navigation
-  const anchorLinks = document.querySelectorAll('a[href^="#"]');
-  anchorLinks.forEach((link) => {
+  toggle?.addEventListener('click', () =>
+    setMenu(toggle.getAttribute('aria-expanded') !== 'true')
+  );
+  closeBtn?.addEventListener('click', () => setMenu(false));
+  scrim?.addEventListener('click', () => setMenu(false));
+
+  menu?.querySelectorAll('a, .open-contact-modal').forEach((el) =>
+    el.addEventListener('click', () => setMenu(false))
+  );
+
+  window.addEventListener('keydown', (e) => {
+    if (!menu?.classList.contains('open')) return;
+
+    if (e.key === 'Escape') {
+      setMenu(false);
+      return;
+    }
+
+    if (e.key !== 'Tab') return;
+    const items = focusables();
+    if (!items.length) return;
+
+    const first = items[0];
+    const last = items[items.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+
+  /* --- Smooth anchor scrolling ----------------------------------------- */
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
       if (!href || href === '#') return;
 
-      const targetEl = document.querySelector(href);
-      if (targetEl) {
-        e.preventDefault();
+      const target = document.querySelector(href);
+      if (!target) return;
 
-        const headerHeight = header?.offsetHeight || 85;
-        const windowHeight = window.innerHeight;
-        const targetHeight = targetEl.offsetHeight;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 96;
 
-        let targetScrollTop;
-        // If the section fits within the viewport, vertically center it!
-        if (targetHeight + headerHeight < windowHeight) {
-          const verticalSlack = windowHeight - headerHeight - targetHeight;
-          targetScrollTop = targetEl.offsetTop - headerHeight - (verticalSlack / 2);
-        } else {
-          // If taller, align the top right below the header with comfortable breathing room
-          targetScrollTop = targetEl.offsetTop - headerHeight - 16;
-        }
-
+      // The menu takes ~280ms to clear; start the scroll behind it
+      setTimeout(() => {
         window.scrollTo({
-          top: Math.max(0, targetScrollTop),
-          behavior: 'smooth'
+          top: Math.max(0, top),
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            ? 'auto'
+            : 'smooth'
         });
+      }, menu?.classList.contains('open') ? 220 : 0);
 
-        // Update active state
-        if (link.classList.contains('nav-link')) {
-          links.forEach((l) => l.classList.remove('active'));
-          link.classList.add('active');
-        }
-
-        history.pushState(null, null, href);
-      }
+      history.replaceState(null, '', href);
     });
   });
 }

@@ -3,56 +3,40 @@ export const servicesData = [
     id: 'web',
     title: 'Web Development',
     category: 'web',
-    tagline: 'High-speed, responsive websites crafted for performance, smooth user experiences, and brand credibility.',
     icon: 'globe',
-    features: [
-      'Tailored to your exact technical and business requirements',
-      'Fully responsive across desktops, tablets, and mobile devices'
-    ]
+    tagline: 'Sites that load before your visitor changes their mind.',
+    features: ['Built to your brief, not bent out of a template', 'Sharp on every screen anyone owns']
   },
   {
     id: 'fullstack',
     title: 'Full Stack Development',
     category: 'web',
-    tagline: 'Comprehensive end-to-end web applications with custom backends, databases, and secure APIs.',
     icon: 'server',
-    features: [
-      'Custom database and backend architecture built to your needs',
-      'Seamless integration between user interface and backend logic'
-    ]
+    tagline: 'The half nobody sees, built so you never think about it.',
+    features: ['Databases and APIs shaped around how you work', 'A front and back end that actually agree']
   },
   {
     id: 'uiux',
     title: 'UI/UX Design',
     category: 'uiux',
-    tagline: 'User-centric interface design, cohesive brand design systems, and intuitive customer journeys.',
     icon: 'pen',
-    features: [
-      'Bespoke interface designs aligned with your brand identity',
-      'Interactive wireframes and prototypes ready for production'
-    ]
+    tagline: 'Interfaces people understand without a tutorial.',
+    features: ['Design that carries your brand, not someone else’s', 'Clickable prototypes before any code']
   },
   {
     id: 'video',
     title: 'Video Editing & Reels',
     category: 'video',
-    tagline: 'Engaging social media reels, shorts, and promotional post content engineered for viral reach.',
     icon: 'video',
-    features: [
-      'High-retention video reels and social post creative for Instagram and YouTube',
-      'Dynamic motion pacing, subtitle styling, and audio enhancement'
-    ]
+    tagline: 'Three seconds to earn the scroll. We spend them well.',
+    features: ['Reels cut for retention, not for looking busy', 'Pacing, captions and sound that hold a thumb still']
   },
   {
     id: 'it-services',
-    title: 'Digital Marketing & IT Services',
+    title: 'Digital Marketing & IT',
     category: 'it',
-    tagline: 'Search engine optimization, targeted digital growth, and reliable cloud infrastructure management.',
     icon: 'trend',
-    features: [
-      'Cloud setup, domain configuration, and continuous uptime monitoring',
-      'Strategic search optimization to drive qualified traffic and leads'
-    ]
+    tagline: 'Get found. Stay up. Sleep through the night.',
+    features: ['Cloud, domains and monitoring that pages us, not you', 'Search work aimed at buyers, not vanity traffic']
   }
 ];
-

@@ -1,74 +1,108 @@
 :root {
-  /* Flat Matte Palette: Green, White, and Black */
-  --bg-primary: #0a0c0b;          /* Deep matte flat charcoal black */
-  --bg-secondary: #101311;        /* Matte secondary surface */
-  --bg-card: #141815;             /* Flat matte card */
-  --bg-card-hover: #181d1a;       /* Subtle matte card hover */
-  --bg-glass: #141815;            /* Solid flat surface, no reflective glass */
+  /* ----------------------------------------------------------------
+     Surfaces: warm, airy, paper-white with soft tinted bands
+     ---------------------------------------------------------------- */
+  --paper: #ffffff;
+  --paper-soft: #f7faf8;        /* alternating section band */
+  --paper-tint: #edf5f0;        /* mint wash */
+  --paper-sand: #fbf6ef;        /* warm wash */
+  --paper-sky: #eef3fb;         /* cool wash */
 
-  /* Matte Greens */
-  --accent-green: #10b981;        /* Matte refined emerald green */
-  --accent-emerald: #059669;      /* Muted forest emerald */
-  --accent-mint: #34d399;         /* Soft matte mint */
-  --accent-lime: #10b981;
-  --accent-dark-green: #064e3b;
+  /* ----------------------------------------------------------------
+     Ink: green-tinted neutrals so type never reads cold
+     ---------------------------------------------------------------- */
+  --ink: #0e1a16;
+  --ink-soft: #4a5a54;
+  --ink-muted: #7c8c86;
 
-  /* Aliases */
-  --accent-cyan: #10b981;
-  --accent-blue: #34d399;
-  --accent-purple: #10b981;
-  --accent-amber: #10b981;
-  --accent-magenta: #10b981;
+  /* ----------------------------------------------------------------
+     Brand: emerald, tuned for contrast on white
+     ---------------------------------------------------------------- */
+  --brand: #12936a;             /* UI / large type */
+  --brand-strong: #0e7a57;      /* buttons, 5:1 on white */
+  --brand-ink: #0a5c43;         /* small text on light tints */
+  --brand-soft: #e6f4ee;        /* tinted fills */
+  --brand-line: #cbe7da;        /* tinted borders */
 
-  /* Solid / Flat Matte Accents (No shiny neon gradients) */
-  --gradient-brand: #10b981;
-  --gradient-text: #ffffff;
-  --gradient-glow: none;
-  --gradient-border: #202622;
+  /* ----------------------------------------------------------------
+     Full-bleed section washes: saturated enough to own the viewport,
+     always paired with black type rather than tinted ink
+     ---------------------------------------------------------------- */
+  --wash-mint: #d9ede1;
+  --wash-sage: #c7dcbf;
+  --wash-cream: #fbf0d8;
+  --wash-sky: #dce8f7;
+  --wash-haze: #f1f5f2;
 
-  /* Crisp Matte Typography */
-  --text-primary: #f4f4f5;        /* Crisp matte white */
-  --text-secondary: #9ca3af;      /* Warm matte grey */
-  --text-muted: #6b7280;          /* Subdued matte slate */
-  --text-highlight: #10b981;
+  /* Secondary accents, used sparingly for category colour */
+  --accent-sky: #3d6fd4;
+  --accent-sky-soft: #e9effc;
+  --accent-sand: #b4762a;
+  --accent-sand-soft: #fbf1e2;
+  --accent-plum: #7a54c9;
+  --accent-plum-soft: #f0ebfb;
 
-  /* Clean Hairline Matte Borders */
-  --border-light: #202622;
-  --border-hover: #10b981;
-  --border-focus: #10b981;
+  /* Nav pill / menu */
+  --nav-dark: #121212;
+  --nav-dark-2: #1e1e1e;
 
-  /* Typography: Claude Font (Newsreader Editorial Serif + Inter Clean Sans) */
-  --font-heading: 'Newsreader', Georgia, 'Bitstream Charter', 'Times New Roman', serif;
+  /* ----------------------------------------------------------------
+     Lines
+     ---------------------------------------------------------------- */
+  --line: #e5eae7;
+  --line-soft: #f0f3f1;
+  --line-strong: #d4ddd8;
+
+  /* ----------------------------------------------------------------
+     Type
+     ---------------------------------------------------------------- */
+  /* Display face: a neo-grotesque set large, light and tightly tracked */
+  --font-heading: 'Inter Tight', 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Spacing */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-  --spacing-3xl: 5rem;
+  /* Display metrics, matched to the reference specimen */
+  --display-weight: 400;
+  --display-tracking: -0.014em;
+  --display-leading: 1.12;
 
-  /* Radii */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-full: 9999px;
+  /* Lead paragraph, matched to the reference specimen: 21px / 26px / 400.
+     The reference sets display and lead in one family, so leads take the
+     display face too; only small UI text stays on Inter. */
+  --font-lead: var(--font-heading);
+  --lead-size: clamp(1.0625rem, 1.5vw, 1.3125rem);
+  --lead-leading: 1.238;
+  --lead-weight: 400;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* Matte Shadows (Zero colored neon glow) */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.55);
-  --glow-green: none;
-  --glow-cyan: none;
-  --glow-purple: none;
-  --glow-text: none;
+  /* ----------------------------------------------------------------
+     Space & shape
+     ---------------------------------------------------------------- */
+  --container: 1200px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
 
-  /* Transitions */
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.25s ease;
-  --transition-slow: 0.4s ease;
+  --r-xs: 8px;
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  /* ----------------------------------------------------------------
+     Elevation: low, diffuse, never grey-black
+     ---------------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(14, 26, 22, 0.05);
+  --shadow-sm: 0 1px 2px rgba(14, 26, 22, 0.04), 0 2px 8px rgba(14, 26, 22, 0.04);
+  --shadow-md: 0 2px 6px rgba(14, 26, 22, 0.04), 0 12px 28px -10px rgba(14, 26, 22, 0.12);
+  --shadow-lg: 0 4px 10px rgba(14, 26, 22, 0.04), 0 28px 56px -20px rgba(14, 26, 22, 0.18);
+  --ring: 0 0 0 4px rgba(18, 147, 106, 0.18);
+
+  /* ----------------------------------------------------------------
+     Motion
+     ---------------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* a small, deliberate overshoot: used only on things that open */
+  --ease-spring: cubic-bezier(0.22, 1.12, 0.36, 1);
+  --t-fast: 0.16s var(--ease-out);
+  --t-normal: 0.28s var(--ease-out);
+  --t-slow: 0.6s var(--ease-out);
 }

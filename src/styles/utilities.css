@@ -1,21 +1,20 @@
-/* Utility Classes - Clean Flat Matte */
-.text-green { color: var(--accent-green); }
-.text-white { color: var(--text-primary); }
-.text-muted { color: var(--text-muted); }
+/* Utilities */
+.text-brand { color: var(--brand); }
+.text-muted { color: var(--ink-muted); }
+.center { text-align: center; }
 
 .badge-tag {
   display: inline-flex;
   align-items: center;
   font-size: 0.75rem;
   font-family: var(--font-mono);
-  padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-sm);
-  background: #141815;
-  border: 1px solid var(--border-light);
-  color: var(--text-secondary);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--r-pill);
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
 }
 
-/* Screen reader only */
 .sr-only {
   position: absolute;
   width: 1px;

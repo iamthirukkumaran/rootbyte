@@ -1,5 +1,5 @@
 {
-  "name": "rootbyte",
+  "name": "rootbyte-portfolio",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "three": "^0.170.0",
     "canvas-confetti": "^1.9.3"
   },
   "devDependencies": {
     "vite": "^6.0.0"
-  }
+  },
+  "description": "RootByte \u2014 creative and technology studio site."
 }

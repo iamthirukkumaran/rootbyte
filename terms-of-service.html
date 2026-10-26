@@ -6,57 +6,112 @@
     <title>Terms of Service | RootByte • Creative & Tech Studio</title>
     
     <meta name="description" content="RootByte Terms of Service. Understand the contractual framework, intellectual property agreements, payment milestones, and service warranties governing our studio engagements." />
-    <meta name="theme-color" content="#0a0c0b" />
-
-    <style>
-      html, body { background: #0a0c0b; color: #f4f4f5; }
-      .brand-logo-img { width: 44px; height: 44px; object-fit: contain; }
-    </style>
-    <link rel="stylesheet" href="/src/style.css" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="./src/style.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="/neon-circuit-tree-logo.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   </head>
   <body>
-    <!-- Canvas background -->
-    <canvas id="canvas3d" aria-hidden="true"></canvas>
+    <!-- ===================== Floating pill nav ===================== -->
+    <header class="nav-pill" role="banner">
+      <a href="index.html" class="brand-logo" aria-label="RootByte home">
+        <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <g stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 44V11.9" />
+            <path d="M24 37 18.5 43.5M24 37 29.5 43.5" />
+            <path d="M24 29 13 23V19.2M24 29 35 23V19.2" />
+            <path d="M24 21 18.8 16.2M24 21 29.2 16.2" />
+          </g>
+          <g fill="currentColor">
+            <circle cx="24" cy="8.6" r="3.4" />
+            <circle cx="13" cy="17.6" r="2.6" />
+            <circle cx="35" cy="17.6" r="2.6" />
+            <circle cx="18.4" cy="15.4" r="2.2" />
+            <circle cx="29.6" cy="15.4" r="2.2" />
+          </g>
+        </svg>
+        <span class="brand-text">root<span class="brand-accent">byte</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </header>
 
-    <!-- Top Navigation Header -->
-    <header class="header" role="banner">
-      <div class="container nav-container">
-        <a href="/" class="brand-logo" aria-label="RootByte Home">
-          <img src="/neon-circuit-tree-logo.png" alt="RootByte Logo" class="brand-logo-img" width="44" height="44" />
-          <span class="brand-text">ROOT <span class="brand-accent">BYTE</span></span>
-        </a>
+    <div class="nav-scrim" aria-hidden="true"></div>
 
-        <nav class="nav-links" role="navigation" aria-label="Main Navigation">
-          <a href="/#services" class="nav-link">Services</a>
-          <a href="/#standards" class="nav-link">Standards</a>
-          <a href="/#quote-calculator" class="nav-link">Scope &amp; Timeline</a>
-          <a href="/#process" class="nav-link">Process</a>
-        </nav>
+    <nav id="nav-menu" class="nav-menu" aria-label="Main" aria-hidden="true">
+      <div class="nav-menu-inner">
+      <div class="nav-menu-head">
+        <span class="brand-text">root<span class="brand-accent">byte</span></span>
+        <button class="menu-close" type="button" aria-label="Close menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
 
-        <div class="nav-actions">
-          <button class="btn btn-primary open-contact-modal" aria-label="Start a Project">
-            <span>Contact Us →</span>
-          </button>
+      <div class="nav-menu-body">
+        <div class="nav-menu-cols">
+          <div>
+            <div class="nav-group">
+              <h3>What We Do</h3>
+              <div class="nav-group-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#figures">Our Promises</a>
+                <a href="index.html#standards">Standards</a>
+                <a href="index.html#process">Process</a>
+              </div>
+            </div>
+            <div class="nav-group">
+              <h3>Get Started</h3>
+              <div class="nav-group-links">
+                <a href="index.html#ways">Ways to Work</a>
+                <a href="index.html#contact">Start a Project</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="nav-group">
+              <h3>Company</h3>
+              <div class="nav-group-links">
+                <a href="index.html#hero">Who We Are</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="mailto:rootbyte.services@gmail.com">Email Us</a>
+                <a href="https://github.com/rootByte-services" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+            <div class="nav-group">
+              <h3>Legal</h3>
+              <div class="nav-group-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="cookie-policy.html">Cookie Policy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-menu-foot">
+          <a href="mailto:rootbyte.services@gmail.com">rootbyte.services@gmail.com</a>
+          <a href="index.html#contact" class="btn btn-primary btn-sm">Start a project</a>
         </div>
       </div>
-    </header>
+      </div>
+    </nav>
+
+    <div class="nav-menu-tab" aria-hidden="true"></div>
 
     <main>
       <article class="legal-page-container">
         <div class="legal-back-nav">
-          <a href="/" class="legal-back-link">
+          <a href="index.html" class="legal-back-link">
             <span>←</span> Back to Studio Overview
           </a>
         </div>
 
         <header class="legal-header">
-          <span class="legal-badge">Contractual Terms</span>
           <h1 class="legal-title">Terms of Service</h1>
           <div class="legal-meta">
             <span class="legal-meta-item"><strong>Effective Date:</strong> October 2026</span>
@@ -180,8 +235,22 @@
         <div class="footer-main-row">
           <div class="footer-brand-col">
             <div class="brand-logo footer-logo">
-              <img src="/neon-circuit-tree-logo.png" alt="RootByte Logo" class="brand-logo-img" width="44" height="44" />
-              <span class="brand-text">ROOT<span class="brand-dot">·</span><span class="brand-accent">BYTE</span></span>
+              <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true" style="color: var(--brand)">
+            <g stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 44V11.9" />
+              <path d="M24 37 18.5 43.5M24 37 29.5 43.5" />
+              <path d="M24 29 13 23V19.2M24 29 35 23V19.2" />
+              <path d="M24 21 18.8 16.2M24 21 29.2 16.2" />
+            </g>
+            <g fill="currentColor">
+              <circle cx="24" cy="8.6" r="3.4" />
+              <circle cx="13" cy="17.6" r="2.6" />
+              <circle cx="35" cy="17.6" r="2.6" />
+              <circle cx="18.4" cy="15.4" r="2.2" />
+              <circle cx="29.6" cy="15.4" r="2.2" />
+            </g>
+          </svg>
+              <span class="brand-text">root<span class="brand-accent">byte</span></span>
             </div>
             <div class="footer-tagline">Creative Technology. Digital Excellence.</div>
             <p class="footer-brand-desc">
@@ -210,39 +279,39 @@
             <div class="footer-col">
               <h4>Services</h4>
               <div class="footer-links">
-                <a href="/#services">Web Development</a>
-                <a href="/#services">Full-Stack Solutions</a>
-                <a href="/#services">UI/UX Design</a>
-                <a href="/#services">Digital Marketing</a>
-                <a href="/#services">Video Editing</a>
-                <a href="/#services">IT &amp; Tech Services</a>
+                <a href="index.html#services">Web Development</a>
+                <a href="index.html#services">Full-Stack Solutions</a>
+                <a href="index.html#services">UI/UX Design</a>
+                <a href="index.html#services">Digital Marketing</a>
+                <a href="index.html#services">Video Editing</a>
+                <a href="index.html#services">IT &amp; Tech Services</a>
               </div>
             </div>
 
             <div class="footer-col">
               <h4>Company</h4>
               <div class="footer-links">
-                <a href="/#hero">About Us</a>
-                <a href="/#process">Our Process</a>
-                <a href="#contact-modal" class="open-contact-modal">Contact Us</a>
+                <a href="index.html#hero">About Us</a>
+                <a href="index.html#process">Our Process</a>
+                <a href="index.html#contact">Contact us</a>
               </div>
             </div>
 
             <div class="footer-col">
               <h4>Resources</h4>
               <div class="footer-links">
-                <a href="/#standards">Our Projects</a>
-                <a href="/#quote-calculator">Estimation</a>
-                <a href="/#quote-calculator">FAQs</a>
+                <a href="index.html#standards">Our Projects</a>
+                <a href="index.html#ways">Ways to work</a>
+                <a href="index.html#faq">FAQs</a>
               </div>
             </div>
 
             <div class="footer-col">
               <h4>Legal</h4>
               <div class="footer-links">
-                <a href="/privacy-policy.html">Privacy Policy</a>
-                <a href="/terms-of-service.html">Terms of Service</a>
-                <a href="/cookie-policy.html">Cookie Policy</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="cookie-policy.html">Cookie Policy</a>
               </div>
             </div>
           </div>
@@ -251,11 +320,11 @@
         <div class="footer-bottom-centered">
           <span>© 2026 ROOTBYTE</span>
           <span class="footer-dot">·</span>
-          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
           <span class="footer-dot">·</span>
-          <a href="/terms-of-service.html">Terms &amp; Conditions</a>
+          <a href="terms-of-service.html">Terms &amp; Conditions</a>
           <span class="footer-dot">·</span>
-          <a href="/cookie-policy.html">Cookie Policy</a>
+          <a href="cookie-policy.html">Cookie Policy</a>
           <span class="footer-dot">·</span>
           <a href="#" class="back-to-top">Back to top ↑</a>
         </div>
@@ -298,6 +367,6 @@
     </div>
 
     <!-- Application Script -->
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="./src/legal.js"></script>
   </body>
 </html>

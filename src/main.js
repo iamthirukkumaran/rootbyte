@@ -1,34 +1,29 @@
-import { SceneManager } from './3d/SceneManager.js';
 import { setupNavigation } from './components/Navigation.js';
+import { renderFigures } from './components/Figures.js';
+import { renderWays } from './components/Ways.js';
 import { renderServices } from './components/Services.js';
+import { renderWork } from './components/Work.js';
 import { renderPortfolio } from './components/Portfolio.js';
-import { setupCalculator } from './components/Calculator.js';
+import { renderFaq } from './components/Faq.js';
 import { setupContactModal } from './components/ContactModal.js';
+import { setupScrollFx } from './components/ScrollFx.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize Lightweight 3D Canvas
-  const canvas = document.getElementById('canvas3d');
-  let sceneManager = null;
-  if (canvas) {
-    try {
-      sceneManager = new SceneManager(canvas);
-    } catch (err) {
-      console.warn('WebGL initialization fallback:', err);
-    }
-  }
-
-  // 2. Initialize Navigation and scroll behaviors
+function boot() {
   setupNavigation();
-
-  // 3. Render linear service rows
+  renderFigures();
+  renderWays();
   renderServices();
-
-  // 4. Render engineering & architecture standards
+  renderWork();
   renderPortfolio();
-
-  // 5. Initialize Interactive Cost Estimator
-  setupCalculator();
-
-  // 6. Initialize Contact Inquiry Modal
+  renderFaq();
   setupContactModal();
-});
+
+  // Last, so it sees every node the renderers above just created
+  setupScrollFx();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', boot);
+} else {
+  boot();
+}
